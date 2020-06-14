@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import filedialog
 from PIL import Image,ImageTk
+import tkinter.simpledialog
+
 root = Tk()
 root.title('Image Editor')
 root.geometry('500x500')
@@ -76,9 +78,13 @@ class MainWindow():
         return
 
     def Gaussian_Blur(self):
+        blur = tkinter.simpledialog.askinteger("askinteger", "Enter blur value")
+        print(blur)
         return
 
     def Convolution_Blur(self):
+        blur = tkinter.simpledialog.askinteger("askinteger", "Enter blur value")
+        print(blur)
         return
 
     def Save_Image(self):
