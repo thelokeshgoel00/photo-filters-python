@@ -65,7 +65,7 @@ class MainWindow():
 
         # next image
         path = filedialog.askopenfilename(initialdir="/", title="Select file",
-                                              filetypes=(("jpeg files", "*.jpg"), ("png files", "*.png"),
+                                              filetypes=(("jpeg files", "*.jpg"),
                                                          ("jpeg files", "*.jpeg")))
         im = Image.open(path)
         #im.show()
