@@ -100,12 +100,14 @@ class MainWindow():
         im = Image.open(path)
         #im.show()
         im=im.resize((250,250))
+        self.saveimg = im
         tkimage = ImageTk.PhotoImage(im)
         self.myvar.configure(image=tkimage)
         self.myvar.image = tkimage
 
     def Detect_Face_Mask(self):
         try:
+            messagebox.showinfo("Loading","Please Wait while updated image is loading")
             img = cv2.cvtColor(np.array(self.saveimg), cv2.COLOR_RGB2BGR)
             labelfinder = {0:'mask',1:'No Mask'}
             detector = MTCNN()
@@ -201,7 +203,10 @@ class MainWindow():
             img = cv2.cvtColor(img,cv2.COLOR_RGB2GRAY)
             img = cv2.resize(img,(224,224))
             output = convolution(img,blur_filter)
-            pil_image=Image.fromarray(output)
+
+            gray_image=Image.fromarray(output)
+            pil_image = Image.new("RGB",gray_image.size)
+            pil_image.paste(gray_image)
             self.saveimg = pil_image
             tkimage = ImageTk.PhotoImage(pil_image)
             self.myvar.configure(image=tkimage)
@@ -209,7 +214,7 @@ class MainWindow():
             print("Image Updated")
             return tkimage
         except:
-            print("Gaussian_Blur Error")
+            print("Convolution_Blur Error")
             messagebox.showerror("Error","Please run only on RGB images in jpg format")
             return self.myvar.image
 
@@ -224,6 +229,7 @@ class MainWindow():
 
     def Detect_Face(self):
         try:  
+            messagebox.showinfo("Loading","Please Wait while updated image is loading")
             detector = MTCNN()
             img = cv2.cvtColor(np.array(self.saveimg), cv2.COLOR_RGB2BGR)
             try:
@@ -276,7 +282,8 @@ class MainWindow():
 
     def Cartooning(self):
         try:
-            img_rgb = cv2.cvtColor(np.array(self.saveimg), cv2.COLOR_RGB2BGR) 
+            img_rgb = cv2.cvtColor(np.array(self.saveimg), cv2.COLOR_RGB2BGR)
+            img_rgb = cv2.resize(img_rgb,(252,252))
             num_down = 2 # number of downsampling steps
             num_bilateral = 7 # number of bilateral filtering steps
             img_color = img_rgb
@@ -298,6 +305,9 @@ class MainWindow():
                C=2)
 
             img_edge = cv2.cvtColor(img_edge, cv2.COLOR_GRAY2RGB)
+            print(img_edge.shape)
+            print(img_color.shape)
+
             output = cv2.bitwise_and(img_color, img_edge)
             pil_image=Image.fromarray(output)
             self.saveimg = pil_image
