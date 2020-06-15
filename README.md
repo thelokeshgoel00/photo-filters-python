@@ -17,7 +17,7 @@ Convolution is a fundamental operation on images in which a mathematical operati
 Edges are significant local changes of intensity in a digital image. An edge can be defined as a set of connected pixels that forms a boundary between two disjoint regions. Edge Detection is a method of segmenting an image into regions of discontinuity. Thus the this method detects all the edges in the image and shows them to the user.
 
 #### 5. Face - mask Detection
-This is the best feature of our editor that detects the mask on the face of a person. Its accuracy is around 40% and it is a feature programmed by us in the wake of corona pandemic spreading all over the world. Thus it becomes necessary to wear mask in this situation so as to decrease the community spread of this virus. Thus this features detects the mask and shows whether it is present or not.
+This is the best feature of our editor that detects the mask on the face of a person. Its accuracy is around 40% and it is a feature programmed by us in the wake of corona pandemic spreading all over the world. Thus it becomes necessary to wear mask in this situation so as to decrease the community spread of this virus. Thus this features detects the mask and shows whether it is present or not on the face.
 
 #### 6. Face Detection
 This feature detects the face from the image and even it is able to detect the faces of a group of people in an image. This feature encloses the face inside a rectangular box and shows it to the user.
