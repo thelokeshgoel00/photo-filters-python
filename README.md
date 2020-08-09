@@ -1,4 +1,4 @@
-# Image-filters-python
+# Computer Vision Toolkit
 This is a GUI based Image Project with a lot of available editing options ranging from simple operations, like bluring of image and cartooning of imange, to some complex operations like face-mask detection, face-detection and edge detection which are implemented through Machine Learning.
 ## Installation
 Please Use Conda Environment on Linux based systems. Then use pip install requirements.txt in the cloned folder. 
